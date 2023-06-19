@@ -1,0 +1,14 @@
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+.wrapper {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+} 

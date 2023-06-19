@@ -1,0 +1,19 @@
+// карта цветов
+$color-map: (
+  "dark-blue": #1e1f2f,
+  "dark-purple": #3f2b56,
+  "purple": #6c3483,
+  "light-purple": #ae5ada,
+  "pink": #f368e0,
+  "yellow": #fefb72,
+);
+
+// функция возврата цвета по ключу
+@function get-color($key) {
+  @return map-get($color-map, $key);
+}
+
+// Миксин градиента для кнопок
+@mixin gradient-btn($from, $to) {
+  background: linear-gradient(to bottom, $from, $to);
+}

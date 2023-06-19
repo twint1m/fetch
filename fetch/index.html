@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <link rel="stylesheet" href="src/style.css">
+    <script src="index.js" defer></script>
+
+</head>
+
+<body>
+    <div class="loader" id="loader"></div>
+    <div class="wrapper">
+        <ul class="list container">
+            <li class="list__item col-8"></li>
+            <li class="list__item col-8"></li>
+            <li class="list__item col-8"></li>
+            <li class="list__item col-8"></li>
+            <li class="list__item col-8"></li>
+            <li class="list__item col-8"></li>
+        </ul>
+        <button class="button">Update data</button>
+        <style>
+            .toast {
+                border: 1px solid black;
+                width: 300px;
+                height: 100px;
+                position: fixed;
+                right: -500px;
+                bottom: 70px;
+                border-radius: 10px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                display: none;
+                background-color: #7CFA59;
+            }
+
+            .toast__wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: end;
+            }
+
+            .toast__link {
+                position: absolute;
+                right: 0;
+                top: 0;
+                border: 0;
+                border-radius: 10px;
+            }
+
+
+            @keyframes slide-right {
+                from {
+                    right: -500px;
+                    bottom: 70px;
+                }
+
+                to {
+                    right: 50px;
+                    bottom: 70px;
+                }
+            }
+
+            .slide-right {
+                animation-name: slide-right;
+                animation-duration: 1.5s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+            }
+
+
+            @keyframes slide-left {
+                from {
+                    right: 50px;
+                    bottom: 70px;
+                    display: flex;
+                }
+
+                to {
+                    right: -500px;
+                    display: none;
+                }
+            }
+
+            .slide-left {
+                animation-name: slide-left;
+                animation-duration: 1.5s;
+                animation-timing-function: ease-in-out;
+            }
+        </style>
+        <form>
+            <label for="room-number-input">Номер аудитории:</label>
+            <input type="text" id="room-number-input" name="roomNumber" required>
+
+            <label for="temperature-input">Температура:</label>
+            <input type="number" id="temperature-input" name="temperature" required>
+
+            <button id="submit-btn" type="submit">Отправить</button>
+        </form>
+
+
+
+
+
+        <div class="toast">
+            <div class="toast__wrapper">
+                <button style="background: transparent;" href="#" class="toast__link">
+                    <img src="cross.svg" width="20px" height="20px" alt="">
+                </button>
+                <p class="name"></p>
+                <p class="message"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        .loader {
+            margin: auto;
+        }
+
+        .list {
+            list-style: none;
+            display: grid;
+            justify-items: center;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .list__item {
+            max-width: 100%;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
+</body>
+
+</html>

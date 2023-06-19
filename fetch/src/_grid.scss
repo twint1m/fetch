@@ -1,0 +1,14 @@
+/* grid.scss */
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px; /* расстояние между ячейками сетки */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    grid-column-end: span #{$i};
+  }
+}
